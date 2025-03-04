@@ -17,7 +17,6 @@ logo                     : # path of logo for masthead
 masthead_title           : # override masthead title
 breadcrumbs              : true
 words_per_minute         : 200
-permalink                : /blog/:title/ 
 
 # SEO Related
 google_site_verification : # Your verification code
@@ -31,11 +30,7 @@ author:
   avatar           : "/assets/images/bio-photo.webp" 
   bio              : "Curious tech nerd with a passion for continuous learning and growth."
   location         : "Bulgaria"
-  email            : "gerganazhekova@outlook.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:gerganazhekova@outlook.com"
     - label: "Discord"
       icon: "fab fa-discord"
       url: "https://discord.gg/NGvSgapD3a"
@@ -126,11 +121,17 @@ feed:
 # Search
 search: true
 
-# Collections configuration
+#tags
+tag_archive:
+  type: liquid
+  path: /tags/
+
 collections:
   certificates:
     output: true
     permalink: /:collection/:path/
+    tag_archive_path: "/tags/#"
+
 
 # Defaults for certificates
 defaults:

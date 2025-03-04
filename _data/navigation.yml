@@ -1,15 +1,15 @@
 # Main navigation links
 main:
-  - title: "🏠 Introduction"
+  - title: "Home"
     url: /
-  - title: "📝 Blog"
-    url: /blog/
-  - title: "🏆 Certificate Gallery"
+  - title: "Certificate Gallery"
     url: /certificate-gallery/
-  - title: "🗂️ Categories"
+  - title: "Categories"
     url: /categories/
-  - title: "🏷️ Tags"
+  - title: "Topics" # or "Tags" or "Skills"
     url: /tags/
+  - title: "Blog"
+    url: /blog/
 
 # Sidebar navigation for certificates with subcategories
 certificates:
