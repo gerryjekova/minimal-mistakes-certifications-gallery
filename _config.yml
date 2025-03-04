@@ -27,7 +27,7 @@ baidu_site_verification  : # Your verification code
 # Site Author
 author:
   name             : "Gergana Zhekova"
-  avatar           : "/assets/images/bio-photo.webp" 
+  avatar           : "/assets/images/bio-photo.png" 
   bio              : "Curious tech nerd with a passion for continuous learning and growth."
   location         : "Bulgaria"
   links:
