@@ -3,8 +3,8 @@ title: "How to Set Goals When Everything Feels Like a Priority"
 excerpt: "Strategic frameworks for transforming overwhelming to-do lists into focused action plans"
 date: 2023-01-25
 header:
-  teaser: /assets/images/certificates/goal-setting.png
-  overlay_image: /assets/images/certificates/goal-setting.png
+  teaser: /assets/images/certificates/priority-goal-setting.png
+  overlay_image: /assets/images/certificates/priority-goal-setting.png
   overlay_filter: 0.7
 categories:
   - Professional/Leadership
@@ -15,8 +15,8 @@ tags:
   - Strategic Planning
   - LinkedIn Learning
 gallery:
-  - url: /assets/images/certificates/goal-setting.png
-    image_path: /assets/images/certificates/goal-setting.png
+  - url: /assets/images/certificates/priority-goal-setting.png
+    image_path: /assets/images/certificates/priority-goal-setting.png
     alt: "LinkedIn Learning Goal Setting Certificate"
 ---
 

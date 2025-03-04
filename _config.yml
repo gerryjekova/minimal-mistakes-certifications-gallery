@@ -7,7 +7,7 @@ locale                   : "en-US"
 title                    : "The Neon Vault"
 title_separator          : "⚡"
 subtitle                 : "Where Achievements Glow"
-name                     : "Your Name"
+name                     : "Gergana Zhekova"
 description              : "A luminous collection of professional certifications, achievements, and digital learning adventures."
 url                      : "https://gerryjekova.github.io"
 baseurl                  : "/minimal-mistakes-certifications-gallery"
@@ -27,43 +27,43 @@ baidu_site_verification  : # Your verification code
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "Professional with a passion for continuous learning and growth."
+  name             : "Gergana Zhekova"
+  avatar           : "/assets/images/bio-photo.png"
+  bio              : "Curious tech nerd with a passion for continuous learning and growth."
   location         : "Your Location"
   email            : # optional
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "mailto:gerganazhekova@outlook.com"
+    - label: "Discord"
+      icon: "fas fa-fw fa-discord"
+      url: "https://discord.gg/NGvSgapD3a"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      # url: "https://linkedin.com/in/yourprofile"
+      url: "https://linkedin.com/in/gerganazhekova"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/gerryjekova"
+      url: "https://github.com/gerryjekova"
 
 # Site Footer
 footer:
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/yourprofile"
+      url: "https://linkedin.com/in/gerganazhekova"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/gerryjekova"
     - label: "Substack"
       icon: "fas fa-fw fa-newspaper"
-      url: "https://yourname.substack.com"
+      url: "https://substack.com/@gerryjekova"
     - label: "YouTube"
       icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/@yourchannel"
+      url: "https://youtube.com/@casualnerdingyt"
     - label: "Twitch"
       icon: "fab fa-fw fa-twitch"
-      url: "https://twitch.tv/yourchannel"
+      url: "https://twitch.tv/casualnerdingtv"
 
 # Collections - This is the magic that creates our certificate gallery! ✨
 collections:
