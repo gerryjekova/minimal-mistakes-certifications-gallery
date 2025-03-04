@@ -26,6 +26,7 @@ gallery:
 **Duration:** 1 hour  
 **Issued By:** LinkedIn Learning  
 **Certificate ID:** fe167016fc3ac0d8ff710d570df7143d4d1ecb37f02a1d6b646970deef666957
+**Link:**
 
 This certification focuses on the essential skill of communicating technical information clearly and effectively to various stakeholders, from technical peers to non-technical team members and clients.
 
