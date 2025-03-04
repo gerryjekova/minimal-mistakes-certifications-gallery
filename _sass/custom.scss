@@ -185,3 +185,114 @@
       flex-direction: column;
     }
   }
+  /* Enhanced Related Certificates Styling */
+.related-certificates {
+  margin-top: 4em;
+  padding: 2em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.related-certificates::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.7), transparent);
+  animation: neon-border 3s infinite;
+}
+
+@keyframes neon-border {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.related-title {
+  margin-bottom: 1.5em;
+  font-size: 1.8em;
+  text-align: center;
+  color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.related-certificates-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.certificate-card {
+  flex: 1 0 300px;
+  max-width: 350px;
+  background: rgba(10, 10, 30, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 0, 255, 0.1);
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(255, 0, 255, 0.4);
+  border-color: rgba(255, 0, 255, 0.5);
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.certificate-content {
+  padding: 1em;
+}
+
+.certificate-title {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.certificate-title a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.certificate-title a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+.certificate-meta {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.certificate-excerpt {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .certificate-card {
+    flex: 1 0 100%;
+  }
+}
+
+.no-related {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+}

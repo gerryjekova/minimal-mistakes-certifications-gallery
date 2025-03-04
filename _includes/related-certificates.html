@@ -1,0 +1,116 @@
+{% comment %}
+  Enhanced Related Certificates Component
+  - Combines manual recommendations with automatic discovery
+  - Prioritizes manually specified certificates
+  - Adds visual flair with neon styling
+{% endcomment %}
+
+<div class="related-certificates">
+  <h2 class="related-title">Enhance Your Skills</h2>
+  
+  <div class="related-certificates-wrapper">
+    {% assign maxRelated = 3 %}
+    {% assign relatedCount = 0 %}
+    {% assign manualCount = 0 %}
+    
+    {% comment %} First show manually specified related certificates {% endcomment %}
+    {% if page.related_certificates %}
+      {% for cert_slug in page.related_certificates %}
+        {% for certificate in site.certificates %}
+          {% if certificate.url contains cert_slug and certificate.url != page.url %}
+            {% assign manualCount = manualCount | plus: 1 %}
+            {% assign relatedCount = relatedCount | plus: 1 %}
+            
+            <div class="certificate-card">
+              <div class="certificate-image">
+                <a href="{{ certificate.url | relative_url }}">
+                  <img src="{{ certificate.header.teaser | relative_url }}" alt="{{ certificate.title }}">
+                </a>
+              </div>
+              <div class="certificate-content">
+                <h3 class="certificate-title">
+                  <a href="{{ certificate.url | relative_url }}">{{ certificate.title }}</a>
+                </h3>
+                <div class="certificate-meta">
+                  <span class="certificate-date">{{ certificate.date | date: "%b %Y" }}</span>
+                  <span class="certificate-duration">{{ certificate.duration | default: "Self-paced" }}</span>
+                </div>
+                <p class="certificate-excerpt">{{ certificate.excerpt | truncate: 100 }}</p>
+              </div>
+            </div>
+            
+            {% if relatedCount >= maxRelated %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if relatedCount >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Then add automatic recommendations if needed {% endcomment %}
+    {% if relatedCount < maxRelated %}
+      {% for certificate in site.certificates %}
+        {% if certificate.url != page.url %}
+          {% assign commonCategories = false %}
+          {% assign commonTags = false %}
+          
+          {% for category in certificate.categories %}
+            {% if page.categories contains category %}
+              {% assign commonCategories = true %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for tag in certificate.tags %}
+            {% if page.tags contains tag %}
+              {% assign commonTags = true %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if commonCategories or commonTags %}
+            {% assign isManuallyRelated = false %}
+            {% if page.related_certificates %}
+              {% for cert_slug in page.related_certificates %}
+                {% if certificate.url contains cert_slug %}
+                  {% assign isManuallyRelated = true %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
+            {% unless isManuallyRelated %}
+              {% assign relatedCount = relatedCount | plus: 1 %}
+              
+              <div class="certificate-card">
+                <div class="certificate-image">
+                  <a href="{{ certificate.url | relative_url }}">
+                    <img src="{{ certificate.header.teaser | relative_url }}" alt="{{ certificate.title }}">
+                  </a>
+                </div>
+                <div class="certificate-content">
+                  <h3 class="certificate-title">
+                    <a href="{{ certificate.url | relative_url }}">{{ certificate.title }}</a>
+                  </h3>
+                  <div class="certificate-meta">
+                    <span class="certificate-date">{{ certificate.date | date: "%b %Y" }}</span>
+                    <span class="certificate-duration">{{ certificate.duration | default: "Self-paced" }}</span>
+                  </div>
+                  <p class="certificate-excerpt">{{ certificate.excerpt | truncate: 100 }}</p>
+                </div>
+              </div>
+              
+              {% if relatedCount >= maxRelated %}
+                {% break %}
+              {% endif %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    
+    {% if relatedCount == 0 %}
+      <p class="no-related">Continue exploring other certificates in your collection!</p>
+    {% endif %}
+  </div>
+</div>
