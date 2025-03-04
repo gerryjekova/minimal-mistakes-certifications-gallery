@@ -28,16 +28,16 @@ baidu_site_verification  : # Your verification code
 # Site Author
 author:
   name             : "Gergana Zhekova"
-  avatar           : "/assets/images/bio-photo.png"
+  avatar           : "/assets/images/bio-photo.webp" 
   bio              : "Curious tech nerd with a passion for continuous learning and growth."
-  location         : "Your Location"
-  email            : # optional
+  location         : "Bulgaria"
+  email            : "gerganazhekova@outlook.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:gerganazhekova@outlook.com"
     - label: "Discord"
-      icon: "fas fa-fw fa-discord"
+      icon: "fab fa-discord"
       url: "https://discord.gg/NGvSgapD3a"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
