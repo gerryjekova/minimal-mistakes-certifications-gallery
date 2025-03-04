@@ -282,3 +282,390 @@ What makes this feature awesome:
 5. **Flexible implementation**: Use automatic discovery or manually specify exactly which certificates to show
 
 Would you like me to refine any part of this? Or shall we create markdown files for a few more of your certificates?
+
+# More Glowing Certificates for Your Collection! ✨
+
+Here are two more markdown files for your technical certificates - I've added relevant tags that will help create connections between your certificates using that fancy Related Certificates feature we discussed.
+
+## Certificate 1: Web APIs
+
+```markdown
+---
+title: "Introduction to Web APIs (2019)"
+excerpt: "Foundational knowledge of web service APIs, RESTful design principles, and data exchange formats for modern application development"
+date: 2023-02-01
+header:
+  teaser: /assets/images/certificates/web-apis.png
+  overlay_image: /assets/images/certificates/web-apis.png
+  overlay_filter: 0.7
+categories:
+  - Technical/Software Development
+  - Technical/Web Development
+tags:
+  - Web Services API
+  - REST
+  - JSON
+  - API Integration
+  - HTTP
+  - LinkedIn Learning
+gallery:
+  - url: /assets/images/certificates/web-apis.png
+    image_path: /assets/images/certificates/web-apis.png
+    alt: "LinkedIn Learning Web APIs Certificate"
+related_certificates:
+  - aws-non-engineers
+  - git-commands-you-should-know
+---
+
+## Skills Unlocked
+
+**Completed:** February 01, 2023  
+**Duration:** 1 hour 1 minute  
+**Issued By:** LinkedIn Learning  
+**Certificate ID:** 3b744294849956ba29c2d1d8986f84bd8380e96a6d84e02ede62b7dbf61377e81
+
+This certification covers the fundamentals of web APIs, including RESTful design principles, data formats, authentication methods, and practical implementation considerations for both consuming and creating web services.
+
+{% include gallery caption="Click to view the full certificate" %}
+
+## What I Learned
+
+* Understanding the key concepts and architecture behind RESTful APIs
+* Working with common data exchange formats including JSON and XML
+* Implementing API requests using appropriate HTTP methods (GET, POST, PUT, DELETE)
+* Navigating API documentation to find endpoints and parameters
+* Authenticating to APIs using various security methods (API keys, OAuth, etc.)
+* Testing API endpoints with specialized tools and environments
+* Handling API responses and error conditions effectively
+* Evaluating API design for usability, efficiency, and security
+* Identifying common API integration challenges and solutions
+
+## How I'm Using These Skills
+
+I apply this API knowledge when integrating different systems and services, allowing me to work effectively with both internal and external data sources. Understanding API fundamentals has enabled me to leverage existing services rather than building everything from scratch, significantly increasing development efficiency.
+
+These skills have been particularly valuable when working with third-party platforms, allowing me to confidently navigate documentation, test endpoints, and implement robust integrations. The ability to understand both the consumption and creation sides of APIs has given me a more holistic perspective on modern application architecture and data exchange.
+
+{% include related-certificates.html %}
+```
+
+## Certificate 2: Software Development Career Skills
+
+```markdown
+---
+title: "Introduction to Career Skills in Software Development"
+excerpt: "Essential professional competencies and career strategies for navigating and advancing in the software development industry"
+date: 2023-01-20
+header:
+  teaser: /assets/images/certificates/software-dev-career.png
+  overlay_image: /assets/images/certificates/software-dev-career.png
+  overlay_filter: 0.7
+categories:
+  - Technical/Software Development
+  - Professional/Career Development
+tags:
+  - Software Development
+  - Career Management
+  - Tech Career Skills
+  - Professional Growth
+  - Technical Communication
+  - LinkedIn Learning
+gallery:
+  - url: /assets/images/certificates/software-dev-career.png
+    image_path: /assets/images/certificates/software-dev-career.png
+    alt: "LinkedIn Learning Software Development Career Skills Certificate"
+---
+
+## Skills Unlocked
+
+**Completed:** January 20, 2023  
+**Duration:** 1 hour 57 minutes  
+**Issued By:** LinkedIn Learning  
+**Certificate ID:** edcfaf299a1ca033b08c6b23c90e18fa18f113afb27b12c10f53cff16c796872
+
+This certification explores the non-technical skills and career strategies essential for success in software development, focusing on professional growth, effective communication, and navigating the tech industry landscape.
+
+{% include gallery caption="Click to view the full certificate" %}
+
+## What I Learned
+
+* Developing an effective career roadmap for software development progression
+* Building and maintaining a professional portfolio that showcases technical skills
+* Navigating technical interviews and coding assessments confidently
+* Balancing technical expertise with essential soft skills for team environments
+* Communicating effectively with both technical and non-technical stakeholders
+* Contributing productively to code reviews and technical discussions
+* Managing continuous learning in a rapidly evolving technical landscape
+* Identifying and pursuing specialized paths within software development
+* Building meaningful professional networks in the tech community
+* Recognizing and addressing burnout and work-life balance challenges
+
+## How I'm Using These Skills
+
+I apply these career development strategies to navigate my professional journey in technology, making intentional choices about skill development, project selection, and growth opportunities. The balanced perspective on technical and interpersonal skills has helped me contribute more effectively to teams and projects.
+
+These skills have been particularly valuable for long-term career planning and professional positioning. Rather than focusing solely on the latest technologies, I now approach my development with a more holistic view that includes communication skills, industry awareness, and strategic networking—creating a more sustainable and fulfilling career trajectory.
+
+{% include related-certificates.html %}
+```
+
+## Advanced "Related Certificates" Implementation 🧩
+
+Let's talk about how to enhance your "Related Certificates" feature even further! Here's a more sophisticated implementation that combines automatic and manual recommendations:
+
+### Create an Improved Include File
+
+Replace your `_includes/related-certificates.html` with this enhanced version:
+
+```html
+{% comment %}
+  Enhanced Related Certificates Component
+  - Combines manual recommendations with automatic discovery
+  - Prioritizes manually specified certificates
+  - Adds visual flair with neon styling
+{% endcomment %}
+
+<div class="related-certificates">
+  <h2 class="related-title">Enhance Your Skills</h2>
+  
+  <div class="related-certificates-wrapper">
+    {% assign maxRelated = 3 %}
+    {% assign relatedCount = 0 %}
+    {% assign manualCount = 0 %}
+    
+    {% comment %} First show manually specified related certificates {% endcomment %}
+    {% if page.related_certificates %}
+      {% for cert_slug in page.related_certificates %}
+        {% for certificate in site.certificates %}
+          {% if certificate.url contains cert_slug and certificate.url != page.url %}
+            {% assign manualCount = manualCount | plus: 1 %}
+            {% assign relatedCount = relatedCount | plus: 1 %}
+            
+            <div class="certificate-card">
+              <div class="certificate-image">
+                <a href="{{ certificate.url | relative_url }}">
+                  <img src="{{ certificate.header.teaser | relative_url }}" alt="{{ certificate.title }}">
+                </a>
+              </div>
+              <div class="certificate-content">
+                <h3 class="certificate-title">
+                  <a href="{{ certificate.url | relative_url }}">{{ certificate.title }}</a>
+                </h3>
+                <div class="certificate-meta">
+                  <span class="certificate-date">{{ certificate.date | date: "%b %Y" }}</span>
+                  <span class="certificate-duration">{{ certificate.duration | default: "Self-paced" }}</span>
+                </div>
+                <p class="certificate-excerpt">{{ certificate.excerpt | truncate: 100 }}</p>
+              </div>
+            </div>
+            
+            {% if relatedCount >= maxRelated %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if relatedCount >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    
+    {% comment %} Then add automatic recommendations if needed {% endcomment %}
+    {% if relatedCount < maxRelated %}
+      {% for certificate in site.certificates %}
+        {% if certificate.url != page.url %}
+          {% assign commonCategories = false %}
+          {% assign commonTags = false %}
+          
+          {% for category in certificate.categories %}
+            {% if page.categories contains category %}
+              {% assign commonCategories = true %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for tag in certificate.tags %}
+            {% if page.tags contains tag %}
+              {% assign commonTags = true %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if commonCategories or commonTags %}
+            {% assign isManuallyRelated = false %}
+            {% if page.related_certificates %}
+              {% for cert_slug in page.related_certificates %}
+                {% if certificate.url contains cert_slug %}
+                  {% assign isManuallyRelated = true %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
+            {% unless isManuallyRelated %}
+              {% assign relatedCount = relatedCount | plus: 1 %}
+              
+              <div class="certificate-card">
+                <div class="certificate-image">
+                  <a href="{{ certificate.url | relative_url }}">
+                    <img src="{{ certificate.header.teaser | relative_url }}" alt="{{ certificate.title }}">
+                  </a>
+                </div>
+                <div class="certificate-content">
+                  <h3 class="certificate-title">
+                    <a href="{{ certificate.url | relative_url }}">{{ certificate.title }}</a>
+                  </h3>
+                  <div class="certificate-meta">
+                    <span class="certificate-date">{{ certificate.date | date: "%b %Y" }}</span>
+                    <span class="certificate-duration">{{ certificate.duration | default: "Self-paced" }}</span>
+                  </div>
+                  <p class="certificate-excerpt">{{ certificate.excerpt | truncate: 100 }}</p>
+                </div>
+              </div>
+              
+              {% if relatedCount >= maxRelated %}
+                {% break %}
+              {% endif %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    
+    {% if relatedCount == 0 %}
+      <p class="no-related">Continue exploring other certificates in your collection!</p>
+    {% endif %}
+  </div>
+</div>
+```
+
+### Add More Stylish CSS
+
+Enhance the styling by adding this to your `assets/css/main.scss`:
+
+```scss
+/* Enhanced Related Certificates Styling */
+.related-certificates {
+  margin-top: 4em;
+  padding: 2em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.related-certificates::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.7), transparent);
+  animation: neon-border 3s infinite;
+}
+
+@keyframes neon-border {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.related-title {
+  margin-bottom: 1.5em;
+  font-size: 1.8em;
+  text-align: center;
+  color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.related-certificates-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.certificate-card {
+  flex: 1 0 300px;
+  max-width: 350px;
+  background: rgba(10, 10, 30, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 0, 255, 0.1);
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(255, 0, 255, 0.4);
+  border-color: rgba(255, 0, 255, 0.5);
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.certificate-content {
+  padding: 1em;
+}
+
+.certificate-title {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.certificate-title a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.certificate-title a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+.certificate-meta {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.certificate-excerpt {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .certificate-card {
+    flex: 1 0 100%;
+  }
+}
+
+.no-related {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+}
+```
+
+## Why This Enhanced System Rocks ✨
+
+1. **Visual Harmony**: The neon glow effects create a cohesive experience with your "Neon Vault" branding
+
+2. **Smart Recommendations**: The system first shows manually selected certificates, then intelligently fills in with automatic recommendations
+
+3. **Responsive Design**: Cards look great on any device size
+
+4. **Subtle Animation**: The subtle pulsing border creates visual interest without being distracting
+
+5. **Clean Code Organization**: The include file is well-commented and maintainable
+
+Imagine how satisfying it will be to see your certificates interconnected with these glowing recommendation cards! As your collection grows, the network of relationships between certificates will become more robust, encouraging visitors to explore your full range of skills.
+
+Want me to create any more certificate markdown files, or would you like guidance on other aspects of your site?
